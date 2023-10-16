@@ -10,6 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //テスト
         // CalendarViewに現在日時を設定します。
         val calendarView = findViewById<CalendarView>(R.id.calendarView)
         calendarView.date = System.currentTimeMillis()
