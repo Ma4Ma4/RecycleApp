@@ -21,19 +21,20 @@
             android:id="@+id/button_can"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:text="カン" />
+            android:text="@string/can"
+            android:onClick="clickHandlerFunction" />
 
         <Button
             android:id="@+id/button_bin"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:text="ビン" />
+            android:text="@string/bin" />
 
         <Button
             android:id="@+id/button_pet"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:text="ペットボトル" />
+            android:text="@string/pet" />
 
     </LinearLayout>
 
@@ -42,6 +43,6 @@
         android:id="@+id/text_by_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="押したボタンの資源ゴミ回収日をテキスト表示(デバッグ用)" />
+        android:text="@string/txt_by_bt" />
 
 </LinearLayout>
