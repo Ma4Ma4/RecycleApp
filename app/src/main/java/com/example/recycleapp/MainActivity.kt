@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         override fun onSelectedDayChange(calendarView: CalendarView, year: Int, month: Int, dayOfMonth: Int) {
             // monthは0起算のため+1します。
             val displayMonth = month + 1
-            Toast.makeText(applicationContext, "$year/$displayMonth/$dayOfMonth", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "$year/$displayMonth/$dayOfMonth/test", Toast.LENGTH_SHORT).show()
         }
     }
 }
