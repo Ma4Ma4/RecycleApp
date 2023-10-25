@@ -73,4 +73,11 @@
         android:layout_height="wrap_content"
         android:text="@string/txt_by_bt" />
 
+    <!-- 通知発令用ボタン -->
+    <Button
+        android:id="@+id/button_notify"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="@string/notify" />
+
 </LinearLayout>
