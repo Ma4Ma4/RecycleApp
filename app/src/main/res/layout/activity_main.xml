@@ -5,11 +5,39 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- CalendarViewを配置します。 -->
-    <CalendarView
-        android:id="@+id/calendarView"
+    <!-- 線を引くビューとカレンダービューを重ねるためのFrameLayout -->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+
+        <!-- 線を引いて無理矢理曜日をハイライトしてみます -->
+        <View
+            android:id="@+id/highlight_line"
+            android:layout_width="35dp"
+            android:layout_height="218dp"
+            android:alpha="10"
+            android:background="@color/purple_200"
+            android:visibility="invisible" />
+
+        <!-- CalendarViewを配置します。 -->
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
+    <!-- 選択した日付の情報を表示するテキストビュー -->
+    <TextView
+        android:id="@+id/day_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/target_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp" />
 
     <!-- ゴミの種類を選択するボタンを横並びに配置 -->
     <LinearLayout
