@@ -4,6 +4,7 @@
     <string name="bin">ビン</string>
     <string name="pet">ペットボトル</string>
     <string name="notify">通知を発令</string>
+    <string name="result">検索結果画面へ</string>
     <string name="txt_by_bt">押したボタンの資源ゴミ回収日をテキスト表示(デバッグ用)</string>
     <string name="txt_can">カンは毎週水曜日に回収しています</string>
     <string name="txt_bin">ビンは毎週金曜日に回収しています</string>
@@ -14,5 +15,4 @@
     <string name="channel_description">通知チャネルディスクリプション</string>
     <string name="submit">出しました</string>
     <string name="forgot">忘れました</string>
-    <!-- test -->
 </resources>
