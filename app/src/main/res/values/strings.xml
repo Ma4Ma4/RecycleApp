@@ -14,4 +14,5 @@
     <string name="channel_description">通知チャネルディスクリプション</string>
     <string name="submit">出しました</string>
     <string name="forgot">忘れました</string>
+    <!-- test -->
 </resources>
