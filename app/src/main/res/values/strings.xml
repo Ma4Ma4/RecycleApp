@@ -5,4 +5,5 @@
     <string name="pet">ペットボトル</string>
     <string name="txt_by_bt">押したボタンの資源ゴミ回収日をテキスト表示(デバッグ用)</string>
     <string name="txt_by_bt_clicked">カンは毎週水曜日に回収しています</string>
+    <string name="title_activity_result">ResultActivity</string>
 </resources>
