@@ -3,6 +3,15 @@
     <string name="can">カン</string>
     <string name="bin">ビン</string>
     <string name="pet">ペットボトル</string>
+    <string name="notify">通知を発令</string>
     <string name="txt_by_bt">押したボタンの資源ゴミ回収日をテキスト表示(デバッグ用)</string>
-    <string name="txt_by_bt_clicked">カンは毎週水曜日に回収しています</string>
+    <string name="txt_can">カンは毎週水曜日に回収しています</string>
+    <string name="txt_bin">ビンは毎週金曜日に回収しています</string>
+    <string name="selected_day_info">%1$d年%2$d月%3$d日%4$s曜日</string>
+    <string name="target_info">%1$sの回収日です</string>
+    <string name="no_target_info">資源ゴミの回収はありません</string>
+    <string name="channel_name">通知チャネル</string>
+    <string name="channel_description">通知チャネルディスクリプション</string>
+    <string name="submit">出しました</string>
+    <string name="forgot">忘れました</string>
 </resources>
