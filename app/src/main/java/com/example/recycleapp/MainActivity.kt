@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             putExtra(EXTRA_NOTIFICATION_ID, 0)
         }
-        val pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
+        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_NO_CREATE or PendingIntent.FLAG_UPDATE_CURRENT)
 
         // EX. 通知に2択ボタンを設けてアクティビティ遷移の土台にする
         // ここを遷移先のアクティビティ(出し忘れたので検索画面へ)を指定するインテントにすることで実装できそう
@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             putExtra(EXTRA_NOTIFICATION_ID, 0)
         }
-        val pendingIntentForgot = PendingIntent.getActivity(this, 0, intentForgot, 0)
+        val pendingIntentForgot = PendingIntent.getActivity(this, 0, intentForgot, PendingIntent.FLAG_NO_CREATE or PendingIntent.FLAG_UPDATE_CURRENT)
 
         val builder = NotificationCompat.Builder(this, channelId)
             // 1-2. 表示内容の設定
@@ -149,14 +149,17 @@ class MainActivity : AppCompatActivity() {
             val today:Calendar = Calendar.getInstance()
             today.set(year, displayMonth, dayOfMonth)
             val dayofweek = today.get(Calendar.DAY_OF_WEEK) // 曜日ソース(int)を取得、なぜか1=木曜日~7=水曜日, なぜか11月にするとバグる?
-            val week = arrayOf("木", "金", "土", "日", "月", "火", "水")
+            // val week = arrayOf("木", "金", "土", "日", "月", "火", "水") [not November]
+            val week = arrayOf("金", "土", "日", "月", "火", "水", "木")
             val dayinfoText:TextView = findViewById(R.id.day_info)  // 日付変更に連動するテキストを設定、年日時曜日を代入して表示
             dayinfoText.text = getString(R.string.selected_day_info, year, displayMonth, dayOfMonth, week[dayofweek - 1])
 
             // その日の回収対象資源ゴミをテキスト表示
-            val target = arrayOf("dummy", "ビン", "dummy", "dummy", "dummy", "dummy", "カン") // 超簡易的な曜日に対する対象の資源ゴミ
+            //val target = arrayOf("dummy", "ビン", "dummy", "dummy", "dummy", "dummy", "カン") // 超簡易的な曜日に対する対象の資源ゴミ [not November]
+            val target = arrayOf("ビン", "dummy1", "dummy2", "dummy3", "dummy4", "カン", "dummy5") // 超簡易的な曜日に対する対象の資源ゴミ
             val targetText:TextView = findViewById(R.id.target_info)  // 日付変更に連動するテキストを設定、年日時曜日を代入して表示
-            if(dayofweek == 7 || dayofweek == 2){ //水曜ならカン, 金曜はビンの回収日
+            // if(dayofweek == 7 || dayofweek == 2){ //水曜ならカン, 金曜はビンの回収日 [not November]
+            if(dayofweek == 6 || dayofweek == 1){ //水曜ならカン, 金曜はビンの回収日
                 targetText.text = getString(R.string.target_info, target[dayofweek - 1])
             }
             else{ //それ以外の曜日は資源ゴミの回収無し
