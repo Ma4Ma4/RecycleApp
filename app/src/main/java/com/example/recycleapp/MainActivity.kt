@@ -90,8 +90,8 @@ class MainActivity : AppCompatActivity() {
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
 
         // EX. 通知に2択ボタンを設けてアクティビティ遷移の土台にする
-        // ここを遷移先のアクティビティを指定するインテントにすることで実装できそう
-        val intentForgot = Intent(this, MainActivity::class.java).apply {
+        // ここを遷移先のアクティビティ(出し忘れたので検索画面へ)を指定するインテントにすることで実装できそう
+        val intentForgot = Intent(this, DummyActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             putExtra(EXTRA_NOTIFICATION_ID, 0)
         }
@@ -114,8 +114,7 @@ class MainActivity : AppCompatActivity() {
             .addAction( //ゴミ出し忘れた選択肢
                 com.google.android.material.R.drawable.ic_clear_black_24, getString(R.string.forgot), //アイコンは適当
                 pendingIntentForgot)
-
-        //.setAutoCancel(true) //通知をタップしたら通知が消去される
+            .setAutoCancel(true) //通知をタップしたら通知が消去される
 
         // ボタンクリックを検出するイベントリスナー(通知トリガー用)
         val buttonNotify:Button = findViewById(R.id.button_notify)
@@ -127,6 +126,16 @@ class MainActivity : AppCompatActivity() {
                 notify(12345, builder.build())
             }
         }
+
+        // ボタンクリックを検出するイベントリスナー(検索結果画面ジャンプ用)
+        val buttonResult:Button = findViewById(R.id.button_result)
+        buttonResult.setOnClickListener {
+            // ここに[通知を発令]ボタン押下時の処理を記述
+            Log.d("INFO", "BUTTON RESULT WAS PRESSED")
+            val intentResult = Intent(this, ResultActivity::class.java)
+            startActivity(intentResult)
+        }
+
     }
 
     // CalendarViewで日にちが選択された時に呼び出されるリスナークラス

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ResultActivity">
 
+
     <ListView
         android:id="@+id/list_View"
         android:layout_width="409dp"
@@ -18,4 +19,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

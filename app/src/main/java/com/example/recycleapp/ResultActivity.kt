@@ -1,5 +1,6 @@
 package com.example.recycleapp
 
+
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
@@ -19,6 +20,7 @@ class ResultActivity : AppCompatActivity() {
             }
 
         }
+
 
 
 

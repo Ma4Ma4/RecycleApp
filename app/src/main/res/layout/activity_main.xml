@@ -80,4 +80,11 @@
         android:layout_height="wrap_content"
         android:text="@string/notify" />
 
+    <!-- 検索結果画面に飛ぶボタン -->
+    <Button
+        android:id="@+id/button_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/result" />
+
 </LinearLayout>
