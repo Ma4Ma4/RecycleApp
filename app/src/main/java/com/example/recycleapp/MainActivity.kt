@@ -11,10 +11,8 @@ import androidx.core.app.NotificationCompat //怪しい,コイツ周りのため
 import androidx.core.app.NotificationManagerCompat
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.CalendarView
-import android.widget.TextView
 import android.view.ViewGroup.MarginLayoutParams;
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat.EXTRA_NOTIFICATION_ID
 import java.util.*
@@ -131,11 +129,23 @@ class MainActivity : AppCompatActivity() {
         val buttonResult:Button = findViewById(R.id.button_result)
         buttonResult.setOnClickListener {
             // ここに[通知を発令]ボタン押下時の処理を記述
-            Log.d("INFO", "BUTTON RESULT WAS PRESSED")
             val intentResult = Intent(this, ResultActivity::class.java)
             startActivity(intentResult)
         }
 
+        // 通知日時選択スピナー
+        // 日にち・時刻のスピナーオブジェクト取得
+        val spinnerDay:Spinner = findViewById(R.id.spinner_day)
+        val spinnerTime:Spinner = findViewById(R.id.spinner_time)
+
+        // ボタンクリックを検出するイベントリスナー(通知日時選択用)
+        val buttonSet:Button = findViewById(R.id.button_set)
+        buttonSet.setOnClickListener {
+            // ここに[設定]ボタン押下時の処理を記述(とりあえずトーストさせる)
+            var day = spinnerDay.selectedItem.toString()
+            var time = spinnerTime.selectedItem.toString()
+            Toast.makeText(applicationContext, "通知日時を $day の $time に設定しました", Toast.LENGTH_SHORT).show()
+        }
     }
 
     // CalendarViewで日にちが選択された時に呼び出されるリスナークラス
