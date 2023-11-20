@@ -1,3 +1,7 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+
+#20231120にエラー発生した同ディレクトリ内のvcs.xmlファイル, kotlinc.xmlファイル(ファイル削除による追跡消去済み)を今後は無視する
+/vcs.xml
+/kotlinc.xml
