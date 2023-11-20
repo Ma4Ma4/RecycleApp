@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/LinearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,13 +12,46 @@
         android:layout_height="wrap_content">
 
         <!-- 線を引いて無理矢理曜日をハイライトしてみます -->
+
         <View
-            android:id="@+id/highlight_line"
-            android:layout_width="35dp"
+            android:id="@+id/highlight_can"
+            android:layout_width="50dp"
             android:layout_height="218dp"
+            android:layout_marginStart="171dp"
+            android:layout_marginTop="70dp"
             android:alpha="10"
             android:background="@color/purple_200"
-            android:visibility="invisible" />
+            android:visibility="visible" />
+
+        <View
+            android:id="@+id/highlight_bin"
+            android:layout_width="50dp"
+            android:layout_height="218dp"
+            android:layout_marginStart="272dp"
+            android:layout_marginTop="70dp"
+            android:alpha="10"
+            android:background="@color/my_coral_200"
+            android:visibility="visible" />
+
+        <View
+            android:id="@+id/highlight_pet"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="121dp"
+            android:layout_marginTop="140dp"
+            android:alpha="10"
+            android:background="@color/my_violet_200"
+            android:visibility="visible" />
+
+        <View
+            android:id="@+id/highlight_pet2"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="121dp"
+            android:layout_marginTop="221dp"
+            android:alpha="10"
+            android:background="@color/my_violet_200"
+            android:visibility="visible" />
 
         <!-- CalendarViewを配置します。 -->
         <CalendarView
@@ -39,7 +73,44 @@
         android:layout_height="wrap_content"
         android:textSize="16sp" />
 
-    <!-- ゴミの種類を選択するボタンを横並びに配置 -->
+    <!-- ゴミの種類を選択するスイッチを横並びに配置 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
+        android:orientation="horizontal">
+
+        <Switch
+            android:id="@+id/switch_can"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/purple_200"
+            android:checked="true"
+            android:text="@string/can"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <Switch
+            android:id="@+id/switch_bin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/my_coral_200"
+            android:checked="true"
+            android:text="@string/bin"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <Switch
+            android:id="@+id/switch_pet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@color/my_violet_200"
+            android:checked="true"
+            android:text="@string/pet"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+    </LinearLayout>
+
+    <!-- 旧ボタン
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,15 +134,15 @@
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:text="@string/pet" />
-
     </LinearLayout>
 
-    <!-- ボタンで選択したゴミの回収曜日をテキスト表示(デバッグ用) -->
+    <!- ボタンで選択したゴミの回収曜日をテキスト表示(デバッグ用) ->
     <TextView
         android:id="@+id/text_by_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/txt_by_bt" />
+    -->
 
     <!-- 通知発令用ボタン -->
     <Button
@@ -81,7 +152,6 @@
         android:text="@string/notify" />
 
     <!-- 検索結果画面に飛ぶボタン -->
-
     <Button
         android:id="@+id/button_result"
         android:layout_width="wrap_content"

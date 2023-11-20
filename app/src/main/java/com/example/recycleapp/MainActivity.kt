@@ -1,5 +1,6 @@
 package com.example.recycleapp
 
+import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -32,11 +33,57 @@ class MainActivity : AppCompatActivity() {
         // CalendarViewで日にちが選択された時に呼び出されるリスナー
         val listener = DateChangeListener()
         calendarView.setOnDateChangeListener(listener)
-        val buttonText:TextView = findViewById(R.id.text_by_button)  // ボタンに連動するテキスト
+        // val buttonText:TextView = findViewById(R.id.text_by_button)  // ボタンに連動するテキスト
         // 選択した資源ゴミの回収用日をハイライトする線
-        val highlightLine:View = findViewById(R.id.highlight_line)
-        val mlp:MarginLayoutParams = highlightLine.layoutParams as MarginLayoutParams
+        val highlightCan:View = findViewById(R.id.highlight_can)
+        val highlightBin:View = findViewById(R.id.highlight_bin)
+        val highlightPet:View = findViewById(R.id.highlight_pet)
+        val highlightPet2:View = findViewById(R.id.highlight_pet2)
 
+        // カレンダーハイライトを切り替える3連トグルスイッチ
+        // スイッチクリックを検出するイベントリスナー(カン)
+        @SuppressLint("UseSwitchCompatOrMaterialCode") //エラー回避
+        val switchCan:Switch = findViewById(R.id.switch_can)
+        switchCan.setOnCheckedChangeListener{ _, isChecked ->
+            //ここにスイッチクリック時の処理を記述
+            Log.d("INFO","BUTTON CAN WAS PRESSED")
+            if(isChecked){ // The toggle is enabled -> visible
+                highlightCan.setVisibility(View.VISIBLE)
+            }
+            else{ // The toggle is disabled -> invisible
+                highlightCan.setVisibility(View.INVISIBLE)
+            }
+        }
+        // スイッチクリックを検出するイベントリスナー(ビン)
+        @SuppressLint("UseSwitchCompatOrMaterialCode") //エラー回避
+        val switchBin:Switch = findViewById(R.id.switch_bin)
+        switchBin.setOnCheckedChangeListener{ _, isChecked ->
+            //ここにスイッチクリック時の処理を記述
+            Log.d("INFO","BUTTON BIN WAS PRESSED")
+            if(isChecked){ // The toggle is enabled -> visible
+                highlightBin.setVisibility(View.VISIBLE)
+            }
+            else{ // The toggle is disabled -> invisible
+                highlightBin.setVisibility(View.INVISIBLE)
+            }
+        }
+        // スイッチクリックを検出するイベントリスナー(PET)
+        @SuppressLint("UseSwitchCompatOrMaterialCode") //エラー回避
+        val switchPet:Switch = findViewById(R.id.switch_pet)
+        switchPet.setOnCheckedChangeListener{ _, isChecked ->
+            //ここにスイッチクリック時の処理を記述
+            Log.d("INFO","BUTTON PET WAS PRESSED")
+            if(isChecked){ // The toggle is enabled -> visible
+                highlightPet.setVisibility(View.VISIBLE)
+                highlightPet2.setVisibility(View.VISIBLE)
+            }
+            else{ // The toggle is disabled -> invisible
+                highlightPet.setVisibility(View.INVISIBLE)
+                highlightPet2.setVisibility(View.INVISIBLE)
+            }
+        }
+
+        /*
         // ボタンクリックを検出するイベントリスナー(カン)
         val buttonCan:Button = findViewById(R.id.button_can)
         buttonCan.setOnClickListener {
@@ -44,9 +91,9 @@ class MainActivity : AppCompatActivity() {
             Log.d("INFO","BUTTON CAN WAS PRESSED")
             buttonText.text = getString(R.string.txt_can)
             // カレンダー制御
-            highlightLine.setVisibility(View.VISIBLE)
-            mlp.setMargins(490,190,0,0)         //マージンを設定
-            highlightLine.layoutParams = mlp
+            highlightCan.setVisibility(View.VISIBLE)
+            mlpCan.setMargins(490,190,0,0)         //マージンを設定
+            highlightCan.layoutParams = mlpCan
         }
         // ボタンクリックを検出するイベントリスナー(ビン)
         val buttonBin:Button = findViewById(R.id.button_bin)
@@ -55,10 +102,21 @@ class MainActivity : AppCompatActivity() {
             Log.d("INFO","BUTTON BIN WAS PRESSED")
             buttonText.text = getString(R.string.txt_bin)
             // カレンダー制御
-            highlightLine.setVisibility(View.VISIBLE)
-            mlp.setMargins(765,190,0,0)         //マージンを設定
-            highlightLine.layoutParams = mlp
+            highlightBin.setVisibility(View.VISIBLE)
+            mlpBin.setMargins(765,190,0,0)         //マージンを設定
+            highlightBin.layoutParams = mlpBin
         }
+        // ボタンクリックを検出するイベントリスナー(ペットボトル)
+        val buttonPet:Button = findViewById(R.id.button_pet)
+        buttonPet.setOnClickListener {
+            // ここに[ビン]ボタン押下時の処理を記述
+            Log.d("INFO","BUTTON PET WAS PRESSED")
+            buttonText.text = getString(R.string.txt_pet)
+            // カレンダー制御
+            highlightPet.setVisibility(View.VISIBLE)
+            mlpPet.setMargins(200,190,0,0)         //マージンを設定
+            highlightPet.layoutParams = mlpPet
+        }*/
 
         /*----- 通知周り-----*/
         // 1-1. チャネルIDを作成
@@ -108,10 +166,13 @@ class MainActivity : AppCompatActivity() {
             .setContentIntent(pendingIntent) //通知をタップしたらインテントを読み込む
             .addAction( //ゴミ出しできた選択肢
                 com.google.android.material.R.drawable.ic_clear_black_24, getString(R.string.submit), //アイコンは適当
-            pendingIntent)
+                pendingIntent)
             .addAction( //ゴミ出し忘れた選択肢
                 com.google.android.material.R.drawable.ic_clear_black_24, getString(R.string.forgot), //アイコンは適当
                 pendingIntentForgot)
+            .addAction( //再通知の選択肢
+                com.google.android.material.R.drawable.ic_clear_black_24, getString(R.string.remind), //アイコンは適当
+                pendingIntent)
 
         //.setAutoCancel(true) //通知をタップしたら通知が消去される
 
@@ -142,8 +203,8 @@ class MainActivity : AppCompatActivity() {
         val buttonSet:Button = findViewById(R.id.button_set)
         buttonSet.setOnClickListener {
             // ここに[設定]ボタン押下時の処理を記述(とりあえずトーストさせる)
-            var day = spinnerDay.selectedItem.toString()
-            var time = spinnerTime.selectedItem.toString()
+            val day = spinnerDay.selectedItem.toString()
+            val time = spinnerTime.selectedItem.toString()
             Toast.makeText(applicationContext, "通知日時を $day の $time に設定しました", Toast.LENGTH_SHORT).show()
         }
     }
@@ -159,14 +220,17 @@ class MainActivity : AppCompatActivity() {
             val today:Calendar = Calendar.getInstance()
             today.set(year, displayMonth, dayOfMonth)
             val dayofweek = today.get(Calendar.DAY_OF_WEEK) // 曜日ソース(int)を取得、なぜか1=木曜日~7=水曜日, なぜか11月にするとバグる?
-            val week = arrayOf("木", "金", "土", "日", "月", "火", "水")
+            // val week = arrayOf("金", "土", "日", "月", "火", "水", "木") 11月以外(正常)
+            val week = arrayOf("金", "土", "日", "月", "火", "水", "木") // 11月
             val dayinfoText:TextView = findViewById(R.id.day_info)  // 日付変更に連動するテキストを設定、年日時曜日を代入して表示
             dayinfoText.text = getString(R.string.selected_day_info, year, displayMonth, dayOfMonth, week[dayofweek - 1])
 
             // その日の回収対象資源ゴミをテキスト表示
-            val target = arrayOf("dummy", "ビン", "dummy", "dummy", "dummy", "dummy", "カン") // 超簡易的な曜日に対する対象の資源ゴミ
+            //val target = arrayOf("dummy", "ビン", "dummy", "dummy", "dummy", "dummy", "カン") // 超簡易的な曜日に対する対象の資源ゴミ 11月以外(正常)
+            val target = arrayOf("ビン", "dummy", "dummy", "dummy", "ビン", "カン", "dummy") // 超簡易的な曜日に対する対象の資源ゴミ 11月
             val targetText:TextView = findViewById(R.id.target_info)  // 日付変更に連動するテキストを設定、年日時曜日を代入して表示
-            if(dayofweek == 7 || dayofweek == 2){ //水曜ならカン, 金曜はビンの回収日
+            // if(dayofweek == 6 || dayofweek == 1){ //水曜ならカン, 金曜はビンの回収日 11月以外(正常)
+            if(dayOfMonth == 7 || dayOfMonth == 21 || dayofweek == 6 || dayofweek == 1){ // 無理矢理7日と21日はペットボトル, 水曜ならカン, 金曜はビンの回収日 11月
                 targetText.text = getString(R.string.target_info, target[dayofweek - 1])
             }
             else{ //それ以外の曜日は資源ゴミの回収無し
