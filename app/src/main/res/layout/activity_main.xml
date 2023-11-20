@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -49,8 +49,8 @@
             android:id="@+id/button_can"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:text="@string/can"
-            android:onClick="clickHandlerFunction" />
+            android:onClick="clickHandlerFunction"
+            android:text="@string/can" />
 
         <Button
             android:id="@+id/button_bin"
@@ -81,10 +81,38 @@
         android:text="@string/notify" />
 
     <!-- 検索結果画面に飛ぶボタン -->
+
     <Button
         android:id="@+id/button_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/result" />
+
+    <!-- 通知日時設定周り -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/spinner_day"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:entries="@array/spinner_days"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner_time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:entries="@array/spinner_times"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/button_set"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/set" />
+    </LinearLayout>
 
 </LinearLayout>
