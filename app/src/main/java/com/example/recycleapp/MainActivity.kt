@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             putExtra(EXTRA_NOTIFICATION_ID, 0)
         }
-        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_NO_CREATE or PendingIntent.FLAG_UPDATE_CURRENT)
+        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 
         // EX. 通知に2択ボタンを設けてアクティビティ遷移の土台にする
         // ここを遷移先のアクティビティ(出し忘れたので検索画面へ)を指定するインテントにすることで実装できそう
@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             putExtra(EXTRA_NOTIFICATION_ID, 0)
         }
-        val pendingIntentForgot = PendingIntent.getActivity(this, 0, intentForgot, PendingIntent.FLAG_NO_CREATE or PendingIntent.FLAG_UPDATE_CURRENT)
+        val pendingIntentForgot = PendingIntent.getActivity(this, 0, intentForgot, PendingIntent.FLAG_IMMUTABLE)
 
         val builder = NotificationCompat.Builder(this, channelId)
             // 1-2. 表示内容の設定
@@ -132,6 +132,15 @@ class MainActivity : AppCompatActivity() {
             val intentResult = Intent(this, ResultActivity::class.java)
             startActivity(intentResult)
         }
+
+        val buttonSearch:Button = findViewById(R.id.button_search)
+        buttonSearch.setOnClickListener {
+            // ここに[通知を発令]ボタン押下時の処理を記述
+            val intentSearch = Intent(this, SearchActivity::class.java)
+            startActivity(intentSearch)
+        }
+
+
 
         // 通知日時選択スピナー
         // 日にち・時刻のスピナーオブジェクト取得
