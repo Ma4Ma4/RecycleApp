@@ -15,13 +15,17 @@ class ResultActivity : AppCompatActivity() {
         val listView = findViewById<ListView>(R.id.list_View)
         val adapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,array)
         listView.adapter = adapter*/
+
+
+
+
         val lv:ListView =findViewById(R.id.list_View)
         val data = mutableListOf(
-            mapOf("main" to "カワチ" ,"sub" to "10:00~20:00"),
-            mapOf("main" to "カスミ" ,"sub" to "9:00~24:00"),
-            mapOf("main" to "ヒタチエ" ,"sub" to "10:00~20:00"),
-            mapOf("main" to "サンユー" ,"sub" to "9:00~21:00"),
-            mapOf("main" to "ヨーカドー" ,"sub" to "10:00~22:00")
+            mapOf("main" to "カワチ" ,"sub" to "10:00~20:00　　カン・ペットボトル"),
+            mapOf("main" to "カスミ" ,"sub" to "9:00~24:00　　カン"),
+            mapOf("main" to "ヒタチエ" ,"sub" to "10:00~20:00　　カン・ビン"),
+            mapOf("main" to "サンユー" ,"sub" to "9:00~21:00　　カン"),
+            mapOf("main" to "ヨーカドー" ,"sub" to "10:00~22:00　　カン・ペットボトル")
         )
 
 
