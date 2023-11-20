@@ -6,44 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ResultActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="11月30日のカンの検索結果"
-            android:textAlignment="center"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ListView
-                android:id="@+id/list_View"
-                android:layout_width="409dp"
-                android:layout_height="582dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp" />
-
-            <Button
-                android:id="@+id/button_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="戻る" />
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
+    <ListView
+        android:id="@+id/list_View"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
