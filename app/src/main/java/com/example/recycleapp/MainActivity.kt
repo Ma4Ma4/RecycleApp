@@ -197,7 +197,7 @@ class MainActivity : AppCompatActivity() {
         val buttonSearch:Button = findViewById(R.id.button_search)
         buttonSearch.setOnClickListener {
             // ここに[通知を発令]ボタン押下時の処理を記述
-            val intentSearch = Intent(this, SearchActivity::class.java)
+            val intentSearch = Intent(this, DummyActivity::class.java)
             startActivity(intentSearch)
         }
 
