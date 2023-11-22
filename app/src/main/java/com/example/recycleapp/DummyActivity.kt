@@ -23,5 +23,14 @@ class DummyActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+        val buttonsearch: Button = findViewById(R.id.button_search)
+        buttonsearch.setOnClickListener {
+            // ここにボタン押下時の処理を記述
+            Log.d("INFO", "BUTTON DUMMY WAS PRESSED")
+
+            val intent = Intent(this, ResultActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="出し忘れちゃうときもあるよね……"
+            android:text="検索してね"
             android:textSize="24sp" />
 
         <Button
@@ -29,6 +29,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="カレンダーページに戻る" />
+
+        <Button
+            android:id="@+id/button_search"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="検索" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
