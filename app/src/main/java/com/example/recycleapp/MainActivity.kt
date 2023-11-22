@@ -147,7 +147,7 @@ class MainActivity : AppCompatActivity() {
 
         // EX. 通知に2択ボタンを設けてアクティビティ遷移の土台にする
         // ここを遷移先のアクティビティを指定するインテントにすることで実装できそう
-        val intentForgot = Intent(this, MainActivity::class.java).apply {
+        val intentForgot = Intent(this, DummyActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             putExtra(EXTRA_NOTIFICATION_ID, 0)
         }
@@ -186,17 +186,19 @@ class MainActivity : AppCompatActivity() {
                 notify(12345, builder.build())
             }
         }
+        /* デバッグ用につき廃止
         // ボタンクリックを検出するイベントリスナー(検索結果画面ジャンプ用)
         val buttonResult:Button = findViewById(R.id.button_result)
         buttonResult.setOnClickListener {
             // ここに[通知を発令]ボタン押下時の処理を記述
             val intentResult = Intent(this, ResultActivity::class.java)
             startActivity(intentResult)
-        }
+        } */
 
+        // 検索画面へ遷移するボタン
         val buttonSearch:Button = findViewById(R.id.button_search)
         buttonSearch.setOnClickListener {
-            // ここに[通知を発令]ボタン押下時の処理を記述
+            // ここに[検索]ボタン押下時の処理を記述
             val intentSearch = Intent(this, DummyActivity::class.java)
             startActivity(intentSearch)
         }

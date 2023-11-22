@@ -20,7 +20,7 @@
             android:layout_marginStart="171dp"
             android:layout_marginTop="70dp"
             android:alpha="10"
-            android:background="@color/purple_200"
+            android:background="@color/my_violet_200"
             android:visibility="visible" />
 
         <View
@@ -30,7 +30,7 @@
             android:layout_marginStart="272dp"
             android:layout_marginTop="70dp"
             android:alpha="10"
-            android:background="@color/my_coral_200"
+            android:background="@color/purple_200"
             android:visibility="visible" />
 
         <View
@@ -40,7 +40,7 @@
             android:layout_marginStart="121dp"
             android:layout_marginTop="140dp"
             android:alpha="10"
-            android:background="@color/my_violet_200"
+            android:background="@color/my_coral_200"
             android:visibility="visible" />
 
         <View
@@ -50,7 +50,7 @@
             android:layout_marginStart="121dp"
             android:layout_marginTop="221dp"
             android:alpha="10"
-            android:background="@color/my_violet_200"
+            android:background="@color/my_coral_200"
             android:visibility="visible" />
 
         <!-- CalendarViewを配置します。 -->
@@ -84,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/purple_200"
+            android:background="@color/my_violet_200"
             android:checked="true"
             android:text="@string/can"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -94,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/my_coral_200"
+            android:background="@color/purple_200"
             android:checked="true"
             android:text="@string/bin"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -104,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:background="@color/my_violet_200"
+            android:background="@color/my_coral_200"
             android:checked="true"
             android:text="@string/pet"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -151,12 +151,14 @@
         android:layout_height="wrap_content"
         android:text="@string/notify" />
 
-    <!-- 検索結果画面に飛ぶボタン -->
+    <!-- デバッグ用につき廃止
+    <!- 検索結果画面に飛ぶボタン
     <Button
         android:id="@+id/button_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/result" />
+     -->
 
     <Button
         android:id="@+id/button_search"
