@@ -236,7 +236,7 @@ class MainActivity : AppCompatActivity() {
 
             // その日の回収対象資源ゴミをテキスト表示
             //val target = arrayOf("dummy", "ビン", "dummy", "dummy", "dummy", "dummy", "カン") // 超簡易的な曜日に対する対象の資源ゴミ 11月以外(正常)
-            val target = arrayOf("ビン", "dummy", "dummy", "dummy", "ビン", "カン", "dummy") // 超簡易的な曜日に対する対象の資源ゴミ 11月
+            val target = arrayOf("ビン", "dummy", "dummy", "dummy", "ペットボトル", "カン", "dummy") // 超簡易的な曜日に対する対象の資源ゴミ 11月
             val targetText:TextView = findViewById(R.id.target_info)  // 日付変更に連動するテキストを設定、年日時曜日を代入して表示
             // if(dayofweek == 6 || dayofweek == 1){ //水曜ならカン, 金曜はビンの回収日 11月以外(正常)
             if(dayOfMonth == 7 || dayOfMonth == 21 || dayofweek == 6 || dayofweek == 1){ // 無理矢理7日と21日はペットボトル, 水曜ならカン, 金曜はビンの回収日 11月
