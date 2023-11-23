@@ -11,24 +11,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Space
+        <EditText
+            android:id="@+id/editTextText"
             android:layout_width="match_parent"
-            android:layout_height="274dp" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="検索してね"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/button_dummy"
-            android:layout_width="372dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="カレンダーページに戻る" />
+            android:layout_height="57dp"
+            android:ems="10"
+            android:hint="検索したいごみの種類を入力してください"
+            android:inputType="text" />
 
         <Button
             android:id="@+id/button_search"
@@ -36,6 +25,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="検索" />
+
+        <Button
+            android:id="@+id/button_dummy"
+            android:layout_width="372dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="カレンダーページに戻る" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
